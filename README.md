@@ -1,2 +1,2 @@
 # Hello-World
-study github
+Hi github
