@@ -1,0 +1,40 @@
+doctype html
+html(lang='zh-cn')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='renderer', content='webkit')
+    meta(name='keywords', content = page_keywords?page_keywords:site_keywords)
+    meta(name='description' content = page_description?page_description+', '+site_description:site_description)
+    meta(name="apple-itunes-app" content="app-id=1080260472")
+    title
+      block title
+      | #{site_title}
+    meta(name='csrf-param', content='_csrf')
+    meta(name='csrf-token', content=csrf)
+    meta(http-equiv='Cache-Control', content='no-transform')
+    meta(http-equiv='Cache-Control', content='no-siteapp')
+    //- apple-touch-icon
+    each val in [57,72,114,144]
+      link(rel='apple-touch-icon', href='/apple-touch-icon-144.png', sizes=val+'x'+val)
+    link(rel='stylesheet', href= UIHelper.static_url('/css/app.css') )
+    block head-style
+    //- <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    //- <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    script(src= UIHelper.static_url('/lib/html5shiv.min.js') )
+    script(src= UIHelper.static_url('/lib/respond.min.js') )
+    <![endif]-->
+    script(src= UIHelper.static_url('/js/lib.js') )
+    block head-script
+  body
+    block body
+      block header
+      block content
+      block footer
+      script(src= UIHelper.static_url('/js/app.js') )
+      if debug  
+        script(src= UIHelper.static_url('/lib/echarts.js') ) 
+      else
+        script(src= UIHelper.static_url('/lib/echarts.common.min.js') )   
+    block foot-script  

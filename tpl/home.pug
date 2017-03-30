@@ -1,0 +1,17 @@
+extend base
+
+block content
+  h2 home
+  img(src='/img/aaa.jpg', width='300')
+  .icon
+    i.fa.fa-battery-three-quarters.fa-2x
+    i.fa.fa-spinner.fa-spin.fa-2x.fa-fw
+  #J_echarts-line.home-echarts-line
+  form(method='post', action='/home/user')
+    input(type='text', value='', name='userName')
+    input(type='hidden', name='_csrf', value=csrf)
+    button(type='submit').pure-button.btn-button-primary.btn-signup 注册
+
+block foot-script
+  script.
+    app.home.init()

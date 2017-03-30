@@ -1,0 +1,48 @@
+doctype html
+html(lang='zh-cn')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(name='renderer', content='webkit')
+    meta(name='keywords', content = page_keywords?page_keywords:site_keywords)
+    meta(name="apple-itunes-app" content="app-id=1080260472")
+    block meta
+      meta(name='description' content = page_description?page_description+', '+site_description:site_description)
+    title
+      block title
+        | #{site_title}
+    meta(name='csrf-param', content='_csrf')
+    meta(name='csrf-token', content=csrf)
+    //- apple-touch-icon
+    each val in [57,72,114,144]
+      link(rel='apple-touch-icon', href='/apple-touch-icon-144.png', sizes=val+'x'+val)
+    block head-script
+    script(src= UIHelper.static_url('/js/mobile.lib.js'))
+  body(class=body_class?body_class:'')
+    block body
+      block header
+      block content
+        h2 mobile
+        #J_client-option button
+        .show
+          h2 显示内容
+          .show-wrap#J_client-show
+      block footer
+      script(src= UIHelper.static_url('/js/mobile.js') )  
+    block foot-script
+    script.
+      (function(){
+        var bridge = app.util.webviewBridge;
+        console.log(app.util)
+        var _isBidding = false;
+        bridge.registerHandler('clientEGLoign', function(data){
+          $('#J_client-show').html(data)
+        })
+        $('#J_client-option').on('click', function(){
+          console.log(bridge.isBridge);
+          bridge.callHandler('clientOption', {
+            'bidding': true
+          })
+        });
+      })();

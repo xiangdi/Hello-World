@@ -1,0 +1,45 @@
+{
+  "name": "v1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e js,pug,styl,css app.js"
+  },
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "co-redis": "^2.1.1",
+    "co-request": "^1.0.0",
+    "koa": "^2.0.0-alpha.7",
+    "koa-body": "^2.0.0",
+    "koa-bouncer": "^5.1.0",
+    "koa-csrf": "^3.0.5",
+    "koa-pug": "^3.0.0-1",
+    "koa-router": "^7.0.1",
+    "koa-session-redis": "^1.1.0",
+    "koa-static": "^3.0.0",
+    "koa-validate": "^1.0.7",
+    "lodash": "^4.17.4",
+    "log4js": "^1.1.1",
+    "moment": "^2.18.1",
+    "node-uuid": "^1.4.7",
+    "pugify": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "nodemon": "^1.11.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
